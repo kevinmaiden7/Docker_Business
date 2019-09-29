@@ -8,7 +8,9 @@ export class BusinessService {
 
   uri = 'http://localhost:4000/business';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   addBusiness(person_name, business_name, business_gst_number) {
       const obj = {

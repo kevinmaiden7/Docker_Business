@@ -26,8 +26,8 @@ export class CrudAddComponent implements OnInit {
       });
   }
 
-  addBusiness(person_name, busines_name, business_gst_number) {
-    this.bs.addBusiness(person_name, busines_name, business_gst_number);
+  addBusiness(person_name, business_name, business_gst_number) {
+    this.bs.addBusiness(person_name, business_name, business_gst_number);
   }
 
   ngOnInit() {

@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class BusinessService {
 
-  uri = 'http://localhost:4000/business';
+  //uri = 'http://localhost:4000/business';
+  uri = 'http://192.168.99.100:4000/business';
 
   constructor(
     private http: HttpClient
@@ -38,7 +39,6 @@ export class BusinessService {
       business_name: business_name,
       business_gst_number: business_gst_number
     };
-    console.log(obj);
     this.http.post(`${this.uri}/update/${id}`, obj)
       .subscribe(res => console.log('Done'));
   }

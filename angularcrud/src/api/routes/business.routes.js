@@ -38,25 +38,26 @@ businessRoutes.route('/edit/:id').get(function (req, res) {
 });
 
 // Defined update route
-businessRoutes.route('/update/:id').post(function (req, res) {
-    Business.findById(req.params.id, function(err, next, business) {
-    if (!business)
-    return next(new Error('Could not load Document'));
-    else {
-    business.person_name = req.body.person_name;
-    business.business_name = req.body.business_name;
-    business.business_gst_number = req.body.business_gst_number;
-    business.save().then(business => {
-    res.json('Update complete');
-    })
-    .catch(err => {
-    res.status(400).send("unable to update the database");
-    });
-    }
+businessRoutes.route('/update/:id').post(function (req, res, next) {
+    Business.findById(req.params.id, function (err,  business) {
+        if (!business)
+            return next(new Error('Could not load Document'));
+        else {
+            business.person_name = req.body.person_name;
+            business.business_name = req.body.business_name;
+            business.business_gst_number = req.body.business_gst_number;
+            business.save().then(business => {
+                res.json('Update complete');
+            })
+                .catch(err => {
+                    res.status(400).send("unable to update the database");
+                });
+        }
     });
 });
-    // Defined delete | remove | destroy route
-    businessRoutes.route('/delete/:id').get(function (req, res) {
+
+// Defined delete | remove | destroy route
+businessRoutes.route('/delete/:id').get(function (req, res) {
     Business.findByIdAndRemove({_id: req.params.id}, function(err, business){
     if(err) res.json(err);
     else res.json('Successfully removed');

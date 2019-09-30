@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BusinessService } from '../business.service';
 
 @Component({
   selector: 'app-crud-get',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrudGetComponent implements OnInit {
 
-  constructor() { }
+  businesses: Array<any>;
+
+  constructor(
+    private businessService: BusinessService
+  ) { }
 
   ngOnInit() {
+    this.businessService.getAllBusiness().subscribe(data => {
+      this.businesses = data;
+    });
   }
 
 }

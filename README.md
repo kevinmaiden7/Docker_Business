@@ -6,7 +6,7 @@ Los contenedores son la evolución de las máquinas virtuales, y a diferencia de
 Los contenedores se usan para ejecutar aplicaciones de forma rápida y confiable en diferentes entornos informáticos; son importantes, además, porque ofrecen excelentes ventajas: son ligeros, son portables, permiten ser reusados, ofrecen un rápido despliegue y un uso eficiente de recursos.
 
 ## API Students
-La ruta de la API Students es `/students`
+La ruta de la API Students es `/student`
 
 El modelo para un registro de estudiante es el siguiente:
 {   
@@ -29,10 +29,13 @@ El modelo para un registro de estudiante es el siguiente:
 ### GET
 
 `/student` --> Entrega todos los registros de la colección students.
+
 `/student/{id}` --> Entrega un registro específico de estudiante por id.
+
 `/student/delete/{id}` --> Se elimina un registro específico de estudiante por id.
 
 ### POST
 
 `/student/add` --> Se crea un nuevo registro de estudiante.
+
 `/student/update/{id}` --> Se modifica un registro de estudiante por id.

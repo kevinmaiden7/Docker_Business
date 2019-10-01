@@ -1,27 +1,38 @@
-# Angularcrud
+# Ingeniería Web: Contenedores
+## Angular, Node.js, MongoDB, Docker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
+Los contenedores son unidades de software que empaquetan código y todas sus dependencias. Estos permiten ejecutar imágenes, las cuales son paquetes de software independientes.
+Los contenedores son la evolución de las máquinas virtuales, y a diferencia de estas,se caracterizan por ser mucho más livianos.
+Los contenedores se usan para ejecutar aplicaciones de forma rápida y confiable en diferentes entornos informáticos; son importantes, además, porque ofrecen excelentes ventajas: son ligeros, son portables, permiten ser reusados, ofrecen un rápido despliegue y un uso eficiente de recursos.
 
-## Development server
+## API Students
+La ruta de la API Students es `/students`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+El modelo para un registro de estudiante es el siguiente:
+{   
+    name: {
+        type: String
+    },
+    surename: {
+        type: String
+    },
+    level: {
+        type: Number
+    },
+    average_grade: {
+        type: Number
+    }
+}
 
-## Code scaffolding
+### Endpoints
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### GET
 
-## Build
+`/student` --> Entrega todos los registros de la colección students.
+`/student/{id}` --> Entrega un registro específico de estudiante por id.
+`/student/delete/{id}` --> Se elimina un registro específico de estudiante por id.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### POST
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+`/student/add` --> Se crea un nuevo registro de estudiante.
+`/student/update/{id}` --> Se modifica un registro de estudiante por id.

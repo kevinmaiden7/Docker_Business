@@ -9,23 +9,23 @@ let Student = require('../models/Student');
 studentRoutes.route('/add').post(function (req, res) {
     let student = new Student(req.body);
     student.save()
-    .then(student => {
-    res.status(200).json({'student': 'student added successfully'});
-    })
-    .catch(err => {
-    res.status(400).send("unable to save to database");
-    });
+        .then(student => {
+            res.status(200).json({'student': 'student added successfully'});
+        })
+        .catch(err => {
+            res.status(400).send("unable to save to database");
+        });
 });
 
 // Entregar colección
 studentRoutes.route('/').get(function (req, res) {
     Student.find(function (err, students){
-    if(err){
-    console.log(err);
-    }
-    else {
-    res.json(students);
-    }
+        if(err){
+            console.log(err);
+        }
+        else {
+            res.json(students);
+        }
     });
 });
 
@@ -33,7 +33,7 @@ studentRoutes.route('/').get(function (req, res) {
 studentRoutes.route('/:id').get(function (req, res) {
     let id = req.params.id;
     Student.findById(id, function (err, student){
-    res.json(student);
+        res.json(student);
     });
 });
 
@@ -61,8 +61,8 @@ studentRoutes.route('/update/:id').post(function (req, res, next) {
 // Eliminar un registro
 studentRoutes.route('/delete/:id').get(function (req, res) {
     Student.findByIdAndRemove({_id: req.params.id}, function(err, student){
-    if(err) res.json(err);
-    else res.json('Successfully removed');
+        if (err) res.json(err);
+        else res.json('Successfully removed');
     });
 });
 

@@ -21,5 +21,4 @@ export class TestComponentComponent implements OnInit {
   convertNumber(number){
     this.romanNumber = this.romanNumeralsService.arabicToRoman(number);
   }
-
 }
